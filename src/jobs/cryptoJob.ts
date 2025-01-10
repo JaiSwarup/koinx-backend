@@ -39,4 +39,3 @@ const task = schedule("* */2 * * *", async () => {
     scheduled: false,
 });
 export default task;
-  
