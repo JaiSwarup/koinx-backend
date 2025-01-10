@@ -1,0 +1,43 @@
+{
+  "name": "koinx-backend",
+  "version": "1.0.0",
+  "description": "A Simple Application Programming Interface (API) for KoinX Backend Assignment",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "nodemon --watch src --exec ts-node src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "NODE_OPTIONS=\"--loader ts-node/esm --no-warnings\" vitest run --watch --passWithNoTests",
+    "setup:eslint": "npx eslint --init"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaiSwarup/koinx-backend.git"
+  },
+  "author": "Jai Swarup",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JaiSwarup/koinx-backend/issues"
+  },
+  "homepage": "https://github.com/JaiSwarup/koinx-backend#readme",
+  "dependencies": {
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.10.5",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-import-resolver-typescript": "^3.7.0",
+    "eslint-plugin-import": "^2.31.0",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.7.3"
+  }
+}
