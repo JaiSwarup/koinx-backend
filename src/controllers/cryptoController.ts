@@ -30,7 +30,7 @@ class CryptoController {
       if (!deviation || deviation.length === 0) {
         return res.status(404).json({ error: 'Data not found' });
       }
-      res.json({ deviation: deviation[0]?.standardDeviation });
+      res.json({ deviation: deviation[0]?.standardDeviation.toFixed(2) });
       /* eslint-disable @typescript-eslint/no-explicit-any */
     } catch (error: any) {
       console.error('Error in getStandardDeviation:', error.message);
