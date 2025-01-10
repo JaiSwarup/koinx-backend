@@ -25,6 +25,25 @@ class CryptoService {
           return null
         }
     }
+
+    async getStandardDeviation(coin : string) {
+        try {
+            if (!coin) {
+                throw new Error("Coin is required");
+            }
+            const result = await Crypto.aggregate([
+                { $match: { coin } },
+                { $group: { _id: null, prices: { $push: "$price" } } },
+                { $project: { standardDeviation: { $stdDevPop: "$prices" } } },
+            ])
+            .limit(100)
+            .exec()
+            return result;
+        } catch (err : any) {
+            console.error("Error calculating standard deviation:", err.message);
+            return null;
+        }
+    }
 }
 
 export default new CryptoService();
