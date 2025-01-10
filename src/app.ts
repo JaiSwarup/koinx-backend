@@ -3,7 +3,6 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 
 import * as middlewares from './middlewares';
-import connectToDatabase from './config/dbConfig';
 import task from './jobs/cryptoJob';
 import routes from './routes';
 import status from './routes/status';
@@ -15,7 +14,6 @@ app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-connectToDatabase();
 task.start();
 app.use('/status', status)
 app.use('/api/v1', routes);

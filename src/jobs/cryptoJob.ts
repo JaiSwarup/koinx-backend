@@ -38,5 +38,6 @@ const task = schedule("* */2 * * *", async () => {
     }
   }, {
     scheduled: false,
+    runOnInit: true,
 });
 export default task;

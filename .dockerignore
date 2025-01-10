@@ -1,0 +1,16 @@
+node_modules
+
+*.md
+
+*.txt
+
+!*important.txt
+
+**/*.log
+
+.git
+.gitignore
+
+**/temp
+
+?.js

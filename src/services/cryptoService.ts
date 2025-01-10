@@ -1,4 +1,5 @@
 import { Crypto } from "../models/cryptoModel";
+import mongoose from "mongoose";
 import axios from "axios";
 
 class CryptoService {
@@ -29,6 +30,9 @@ class CryptoService {
 
     async getStandardDeviation(coin : string) {
         try {
+            if (!mongoose.connection.readyState) {
+                throw new Error("Database connection is not established yet");
+            }
             if (!coin) {
                 throw new Error("Coin is required");
             }

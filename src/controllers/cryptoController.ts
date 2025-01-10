@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import cryptoService from '../services/cryptoService';
+import mongoose from 'mongoose';
 
 class CryptoController {
   async getStats(req: Request, res: Response) {
