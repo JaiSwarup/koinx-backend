@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import cryptoService from '../services/cryptoService';
 
 class CryptoController {
@@ -13,6 +13,7 @@ class CryptoController {
         return res.status(404).json({ error: 'Data not found' });
       }
       res.json(stats);
+      /* eslint-disable @typescript-eslint/no-explicit-any */
     } catch (error: any) {
       console.error('Error in getStats:', error.message);
       res.status(500).json({ error: 'Internal Server Error' });
@@ -30,6 +31,7 @@ class CryptoController {
         return res.status(404).json({ error: 'Data not found' });
       }
       res.json({ deviation: deviation[0]?.standardDeviation });
+      /* eslint-disable @typescript-eslint/no-explicit-any */
     } catch (error: any) {
       console.error('Error in getStandardDeviation:', error.message);
       res.status(500).json({ error: 'Internal Server Error' });

@@ -1,7 +1,6 @@
 import { schedule } from 'node-cron';
 import axios from 'axios';
 import { Crypto } from '../models/cryptoModel';
-import connectToDatabase from '../config/dbConfig';
 
 export const fetchCryptoData = async () => {
     try {
@@ -24,6 +23,7 @@ export const fetchCryptoData = async () => {
             });
             await record.save();
         }
+        /* eslint-disable @typescript-eslint/no-explicit-any */
     } catch (err : any) {
       console.error("Error fetching cryptocurrency data:", err.message);
     }
@@ -32,6 +32,7 @@ export const fetchCryptoData = async () => {
 const task = schedule("* */2 * * *", async () => {
     try {
       await fetchCryptoData();
+      /* eslint-disable @typescript-eslint/no-explicit-any */
     } catch (err: any) {
       console.error("Error in scheduled job:", err.message);
     }

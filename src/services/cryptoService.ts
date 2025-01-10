@@ -20,6 +20,7 @@ class CryptoService {
                 marketCap: data[coin].usd_market_cap,
                 "24hChange": data[coin].usd_24h_change,
             };
+            /* eslint-disable @typescript-eslint/no-explicit-any */
         } catch (err : any) {
           console.error("Error fetching cryptocurrency data:", err.message);
           return null
@@ -39,6 +40,7 @@ class CryptoService {
             .limit(100)
             .exec()
             return result;
+            /* eslint-disable @typescript-eslint/no-explicit-any */
         } catch (err : any) {
             console.error("Error calculating standard deviation:", err.message);
             return null;

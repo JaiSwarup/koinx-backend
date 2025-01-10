@@ -1,6 +1,5 @@
 import { Router } from 'express'
 import mongoose from 'mongoose'
-import config from '../config'
 import connectToDatabase from '../config/dbConfig'
 
 const router = Router()

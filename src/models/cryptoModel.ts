@@ -1,4 +1,4 @@
-import mongoose, {Document, Schema} from "mongoose";
+import mongoose, {Schema} from "mongoose";
 
 const cryptoSchema = new Schema({
     coin: { type: String, required: true }, // 'bitcoin', 'ethereum', 'matic-network'
