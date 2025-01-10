@@ -1,9 +1,13 @@
 import { Router } from 'express'
+import mongoose from 'mongoose'
+import config from '../config'
+import connectToDatabase from '../config/dbConfig'
 
 const router = Router()
 
 router.get('/', async (req, res) => {
   try {
+    await connectToDatabase()
     res.status(200).json({ status: 'OK', database: 'OK'})
   } catch (error) {
     if (error instanceof Error) {
@@ -13,6 +17,7 @@ router.get('/', async (req, res) => {
       res.status(500).json({ status: 'ERROR', message: 'Unknown error' })
     }
   } finally {
+    await mongoose.disconnect()
   }
 })
 
