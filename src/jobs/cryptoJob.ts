@@ -29,7 +29,7 @@ export const fetchCryptoData = async () => {
     }
 };
   
-const task = schedule("* */2 * * *", async () => {
+const task = schedule("0 */2 * * *", async () => {
     try {
       await fetchCryptoData();
       /* eslint-disable @typescript-eslint/no-explicit-any */
